@@ -12,16 +12,17 @@ export default class TeacherCard extends Component {
 	}
 
 	render() {
-		return (
-			<>
-				<div {...storyblokEditable(this.props.blok.content)} className={css["item"]}> 
-					<Link className={css["link"]} href={`${this.props.blok.full_slug}`}>
-						<div className={css["header"]}>
-							<span className={css["title"]}>{this.props.blok.content.title}</span>
-						</div>
-					</Link>
-				</div>
-			</>
-		);
+		return <>
+            <div {...storyblokEditable(this.props.blok.content)} className={css["item"]}> 
+                <Link
+                    className={css["link"]}
+                    href={`${this.props.blok.full_slug}`}
+                    legacyBehavior>
+                    <div className={css["header"]}>
+                        <span className={css["title"]}>{this.props.blok.content.title}</span>
+                    </div>
+                </Link>
+            </div>
+        </>;
 	}
 }
