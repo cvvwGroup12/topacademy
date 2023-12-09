@@ -19,7 +19,7 @@ export default class Location extends Component {
 
 				<main>
 					<Hero blok={this.props.blok} contentTypeTag="course" />
-					{/* <div className={css["location-page__main-content"]}>
+					<div className={css["location-page__main-content"]}>
 						<div id="location-page__short-description" key="location-page__short-description" className={css["location-page__short-description"]}>
 							<section className={css["rich-text-section--with-navigator"]}>
 								<h2 className={css["rich-text-section__title"]}>Location Details</h2>
@@ -29,7 +29,7 @@ export default class Location extends Component {
 					</div>
 					{this.props.blok.additionalstuff.map((nestedBlok) => (
 							<StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-						))} */}
+						))}
 				</main>
 			</div>
 		);
