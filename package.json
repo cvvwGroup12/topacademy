@@ -15,6 +15,7 @@
     "@storyblok/react": "^2.4.7",
     "@svgr/webpack": "^6.3.1",
     "concurrently": "^7.3.0",
+    "follow-redirects": "^1.15.4",
     "js-cookie": "^3.0.1",
     "lazysizes": "^5.3.2",
     "local-ssl-proxy": "^2.0.5",
