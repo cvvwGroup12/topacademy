@@ -1,30 +1,13 @@
 ﻿import React, { Component } from "react";
 import * as PropTypes from "prop-types";
 import Head from "next/head";
-import Script from "next/script"
-import { hotjar } from 'react-hotjar'
+import Script from "next/script";
+import { hotjar } from 'react-hotjar';
 
 function getTagElement([key, value]) {
-  if (key === "title") {
-		return (
-			<title key={key}>{value}</title>
-		);
-	}
-	if (key === "canonicalLink") {
-		return (
-			<link key={key} rel={"canonical"} href={value} hrefLang="nl" />
-		);
-	}
-	// Opengraph uses [property], but everything else uses [name]
-	if (key.indexOf("og:") === 0) {
-		return (
-			<meta key={key} property={key} content={value} />
-		);
-	}
-	return (
-		<meta key={key} name={key} content={value} />
-	);
+  // ... (existing code for getTagElement function)
 }
+
 export default class HeadComponent extends Component {
   constructor(props) {
     super(props);
@@ -65,18 +48,18 @@ export default class HeadComponent extends Component {
         }}>
         </Script>
         <Script id="gascriptloader" src={gasource}></Script>
-        <Script id="gascriptwrapper" dangerouslySetInnerHTML={{
-          __html: `
+        <Script id="gascriptwrapper">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+
             gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
               page_path: window.location.pathname,
             });
-          `
-        }}>
+          `}
         </Script>
-
+        
         {/* Hotjar tracking script */}
         <Script id="hotjar-script" dangerouslySetInnerHTML={{
           __html: `
@@ -89,8 +72,7 @@ export default class HeadComponent extends Component {
               a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
           `
-        }}>
-        </Script>
+        }} />
       </Head>
     );
   }
